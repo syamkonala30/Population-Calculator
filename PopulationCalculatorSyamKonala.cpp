@@ -1,65 +1,56 @@
 #include <iostream>
-
 using namespace std;
 
-int Population(int P, float BP, float DP, int n);
-int main() {
+void Population(int P, float BP, float DP, int n);
 
+int main() {
     int S, n;
     float BP, DP;
-    cout << "this program calculates the Population change";
-    cout << "\n Enter the starting size of population:";
+    cout << "This program calculates the population change." << endl;
+    cout << "Enter the starting size of the population: ";
     cin >> S;
 
-    if (S < 2)
-    {
-        cout << "\nStarting population size must be 2 or more ";
-        cout << "please re-enter:";
+    if (S < 2) {
+        cout << "Starting population size must be 2 or more. Please re-enter: ";
         cin >> S;
     }
-    cout << "\n Enter the annual birth rate(as % of current popualation):";
+
+    cout << "Enter the annual birth rate (as % of current population): ";
     cin >> BP;
 
-    if (BP < 0)
-    {
-        cout << "Birth rate cannot be negative";
-        cout << "Please re - enter:";
+    if (BP < 0) {
+        cout << "Birth rate cannot be negative. Please re-enter: ";
         cin >> BP;
     }
-    cout << "\n Enter the annual death rate";
+
+    cout << "Enter the annual death rate (as % of current population): ";
     cin >> DP;
 
-    if (DP < 0)
-    {
-        cout << "Death rate cannot be negative(as % of current popualation):";
-        cout << "Please re - enter:";
+    if (DP < 0) {
+        cout << "Death rate cannot be negative. Please re-enter: ";
         cin >> DP;
     }
 
-    cout << "\n Enter how many years you wish to view population changes??";
+    cout << "Enter how many years you wish to view population changes: ";
     cin >> n;
 
-    if (n < 0)
-    {
-        cout << "years must be a positive integer";
-        cout << "Please re - enter:";
+    if (n < 0) {
+        cout << "Years must be a positive integer. Please re-enter: ";
         cin >> n;
     }
 
-
     Population(S, BP, DP, n);
 
+    return 0;
 }
 
-int Population(int P, float BP, float DP, int n)
-{
-    cout << "\nStarting Population size is:" << P;
+void Population(int P, float BP, float DP, int n) {
+    cout << "Starting Population size is: " << P << endl;
     int i, New;
 
-    for (i = 1; i <= n; i++)
-    {
+    for (i = 1; i <= n; i++) {
         New = P + ((BP * P) / 100) - ((DP * P) / 100);
         P = New;
-        cout << "\nPopulation at the end of year " << i << " is " << New;
+        cout << "Population at the end of year " << i << " is " << New << endl;
     }
 }
